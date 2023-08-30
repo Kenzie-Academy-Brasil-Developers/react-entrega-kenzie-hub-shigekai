@@ -1,0 +1,15 @@
+.selectDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    position: relative;
+    select{
+        border-radius: 4px;
+        background-color: var(--color-grey-2);
+        height: 3rem;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--color-grey-0);
+    }
+}

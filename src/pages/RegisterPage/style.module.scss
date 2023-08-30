@@ -1,0 +1,11 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 60px 0;
+    img{
+        margin-top: 10px;
+        width: 122px;
+        height: 22px;
+    }
+}

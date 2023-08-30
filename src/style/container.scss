@@ -1,0 +1,13 @@
+.container{
+    width: 100%;
+    margin: 0 auto;
+
+    &.small{
+        max-width: 420px;
+        padding: 16px;
+    }
+    &.large{
+        max-width: 1320px;
+        padding: 24px;
+    }
+}

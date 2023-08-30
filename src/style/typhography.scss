@@ -1,0 +1,51 @@
+%textcolors{
+    &.grey0{
+        color: var(--color-grey-0);
+    }
+    &.grey1{
+        color: var(--color-grey-1);
+    }
+    &.negative{
+        color: var(--color-negative);
+    }
+}
+
+.title1{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 1.125rem;
+
+    @extend %textcolors;
+}
+
+.title2{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 1rem;
+
+    @extend %textcolors;
+}
+
+.headline{
+    font-family: var(--font-family);
+    font-size: 0.75rem;
+
+    &.regular{
+        font-weight: 400
+    }
+
+    &.bold{
+        font-weight: 700
+    }
+
+    @extend %textcolors;
+}
+
+.paragraph{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1rem;
+
+    @extend %textcolors;
+
+}

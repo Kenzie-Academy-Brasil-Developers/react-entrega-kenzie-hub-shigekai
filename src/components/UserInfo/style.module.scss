@@ -1,0 +1,11 @@
+.userDiv{
+    border-bottom: 1px solid var(--color-grey-3);
+    div{
+
+        height: 7.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
