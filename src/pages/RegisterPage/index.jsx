@@ -3,7 +3,7 @@ import Logo from "../../assets/Logo.svg"
 import { Link } from "react-router-dom";
 import style from "./style.module.scss"
 
-export const RegisterPage = ({toast})=>{
+export const RegisterPage = ()=>{
     return(
         <div className="formDiv">
             <div className="container small">
@@ -13,7 +13,7 @@ export const RegisterPage = ({toast})=>{
                      small color-grey-3">Voltar</Link>
                 </div>
     
-                <RegisterForm toast={toast}/>
+                <RegisterForm/>
             </div>
         </div>
     )

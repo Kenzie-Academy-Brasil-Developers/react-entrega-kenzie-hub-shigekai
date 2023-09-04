@@ -4,39 +4,19 @@ import { InputPassword } from "../InputPassword";
 import { Select } from "../Select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "./registerSchema";
-import { useState } from "react";
-import { api } from "../../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
-
-export const RegisterForm = ({toast})=>{
+export const RegisterForm = ()=>{
     const[loading, setLoading] = useState(false);
-    const navigate = useNavigate();
-
-    const registerRequest = async (formData)=>{
-        try{
-            setLoading(true);
-            await api.post("/users", formData);
-            toast.success("Usuário cadastrado com sucesso",{
-                theme: "dark"
-            })
-            navigate("/");
-        } catch (error) {
-            const message = error.response.data.message;
-            toast.error(message === "Email already exists" ? "Email já existe" : "Erro de servidor",{
-                theme: "dark"
-            })
-        } finally {
-            setLoading(false);
-        }
-    }
+    const {registerRequest} = useContext(UserContext);
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: zodResolver(registerSchema)
     })
 
     const submit = (formData)=>{
-        registerRequest(formData)
+        registerRequest(formData, setLoading);
     }
 
     return(

@@ -2,14 +2,14 @@ import { Header } from "../../components/Header"
 import { UserInfo } from "../../components/UserInfo";
 import style from "./style.module.scss";
 
-export const Dashboard = ({user, setUser})=>{
+export const Dashboard = ()=>{
 
 
     return(
         <div>
             <div>
-                <Header setUser={setUser}/>
-                <UserInfo user={user}/>
+                <Header/>
+                <UserInfo/>
     
                 <div className={style.dashDiv}>
                     <div className="container large">

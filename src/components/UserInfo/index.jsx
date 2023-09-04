@@ -1,5 +1,8 @@
+import { useContext } from "react"
 import style from "./style.module.scss"
-export const UserInfo = ({user})=>{
+import { UserContext } from "../../providers/UserContext"
+export const UserInfo = ()=>{
+    const {user} = useContext(UserContext);
     return(
         <div className={style.userDiv}>   
             <div className="container large">

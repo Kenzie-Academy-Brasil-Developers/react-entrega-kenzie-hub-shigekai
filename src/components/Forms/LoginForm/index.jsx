@@ -1,45 +1,27 @@
 import { Link, useNavigate } from "react-router-dom"
 import { Input } from "../Input";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { loginSchema } from "./loginSchema.js";
 import {zodResolver} from "@hookform/resolvers/zod";
 import { InputPassword } from "../InputPassword";
-import { api } from "../../../services/api";
 import style from "./style.module.scss";
-import {toast} from "react-toastify";
+import { UserContext } from "../../../providers/UserContext";
 
 
-export const LoginForm = ({setUser})=>{
+export const LoginForm = ()=>{
+    const { loginRequest } = useContext(UserContext);
+
     const {register, handleSubmit, formState : {errors}} = useForm({
         resolver: zodResolver(loginSchema)
     });
 
     const[loading, setLoading] = useState(false);
-    const navigate = useNavigate();
     
 
-    const loginRequest = async (formData)=>{
-        try{
-            setLoading(true)
-            const {data} = await api.post("/sessions", formData)
-            setUser(data.user);
-            localStorage.setItem("@token", data.token);
-            navigate("/dash");
-            toast.success("Login realizado com sucesso", {
-                theme: "dark"
-            })
-        } catch (error) {
-            toast.error("Login inválido, tente novamente",{
-                theme: "dark"
-            })
-        } finally {
-            setLoading(false)
-        }
-    }
 
     const submit = (formData)=>{
-        loginRequest(formData)
+        loginRequest(formData, setLoading)
     }
 
     return(

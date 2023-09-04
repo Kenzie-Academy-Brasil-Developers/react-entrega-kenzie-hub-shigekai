@@ -2,18 +2,13 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
 import style from "./style.module.scss";
 import {toast} from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
-export const Header = ({setUser})=>{
-    const navigate = useNavigate();
+export const Header = ()=>{
+    const {logout} = useContext(UserContext);
 
-    const logout = ()=>{
-        localStorage.removeItem("@token");
-        navigate("/");
-        setUser(null);
-        toast.success("Logout realizado com sucesso", {
-            theme: "dark"
-        })
-    }
+
 
     return(
         <div className={style.header}>
