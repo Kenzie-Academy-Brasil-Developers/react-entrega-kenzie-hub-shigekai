@@ -1,4 +1,6 @@
+import { CreateTechModal } from "../../components/CreateTechModal";
 import { Header } from "../../components/Header"
+import { TechList } from "../../components/TechList";
 import { UserInfo } from "../../components/UserInfo";
 import style from "./style.module.scss";
 
@@ -13,11 +15,11 @@ export const Dashboard = ()=>{
     
                 <div className={style.dashDiv}>
                     <div className="container large">
-                        <h1 className="title1 grey0">Que pena ! Estamos em desenvolvimento</h1>
-                        <p className="paragraph grey0">Nossa aplicação está em desenvolvimento, em breve teremos novidades.</p>
+                        <TechList/>
                     </div>
                 </div>
             </div>
+            <CreateTechModal/>
         </div>
     )
 }

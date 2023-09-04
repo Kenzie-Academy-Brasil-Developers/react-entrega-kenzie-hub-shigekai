@@ -42,7 +42,7 @@ export const RegisterForm = ()=>{
                  label="Bio" placeholder="Fale sobre você"/>
                 <Input disabled={loading}  error={errors.contact} {...register("contact")}
                  type="text" label="Contato" placeholder="Opção de contato"/>
-                <Select disabled={loading} error={errors.course_module} {...register("course_module")}>
+                <Select  label="Selecionar Módulo" disabled={loading} error={errors.course_module} {...register("course_module")}>
                     <option className="headline regular grey0">Primeiro Módulo</option>
                     <option className="headline regular grey1">Segundo Módulo</option>
                     <option className="headline regular grey1">Terceiro Módulo</option>
