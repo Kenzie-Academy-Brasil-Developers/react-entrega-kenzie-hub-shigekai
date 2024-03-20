@@ -9,5 +9,4 @@ export const PrivateRoutes = ()=>{
     
 
     return user ? <TechProvider> <Outlet/> </TechProvider> : <Navigate to="/"/>
-        
 }

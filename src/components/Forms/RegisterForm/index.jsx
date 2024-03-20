@@ -11,7 +11,7 @@ export const RegisterForm = ()=>{
     const[loading, setLoading] = useState(false);
     const {registerRequest} = useContext(UserContext);
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {register, handleSubmit, watch,  formState: {errors}} = useForm({
         resolver: zodResolver(registerSchema)
     })
 
@@ -42,13 +42,13 @@ export const RegisterForm = ()=>{
                  label="Bio" placeholder="Fale sobre você"/>
                 <Input disabled={loading}  error={errors.contact} {...register("contact")}
                  type="text" label="Contato" placeholder="Opção de contato"/>
-                <Select  label="Selecionar Módulo" disabled={loading} error={errors.course_module} {...register("course_module")}>
-                    <option className="headline regular grey0">Primeiro Módulo</option>
-                    <option className="headline regular grey1">Segundo Módulo</option>
-                    <option className="headline regular grey1">Terceiro Módulo</option>
-                    <option className="headline regular grey1">Quarto Módulo</option>
-                    <option className="headline regular grey1">Quinto Módulo</option>
-                    <option className="headline regular grey1">Sexto Módulo</option>
+                <Select value={watch("course_module")} label="Selecionar Módulo" disabled={loading} error={errors.course_module} {...register("course_module")}>
+                    <option className="headline regular grey0" value="Primeiro Módulo">Primeiro Módulo</option>
+                    <option className="headline regular grey1" value="Segundo Módulo">Segundo Módulo</option>
+                    <option className="headline regular grey1" value="TerceiroMódulo">Terceiro Módulo</option>
+                    <option className="headline regular grey1" value="Quarto Módulo">Quarto Módulo</option>
+                    <option className="headline regular grey1" value="Quinto Módulo">Quinto Módulo</option>
+                    <option className="headline regular grey1" value="Sexto Módulo">Sexto Módulo</option>
                 </Select>
                 <button disabled={loading} className="title2 grey0 button full color-negative">{loading ? "Cadastrando..." : "Cadastre-se"}</button>
 
